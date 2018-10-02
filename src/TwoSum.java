@@ -12,6 +12,18 @@ import java.util.Map;
  */
 public class TwoSum {
 
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0 ; i < nums.length ; i ++){
+            int num = target-nums[i];
+            if(map.containsKey(num)){
+                return new int[]{map.get(num),i};
+            }
+            map.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
     public int[] twoSum1(int[] nums, int target) {
         int[] result = new int[2];
         for(int i  = 0 ; i < nums.length-1 ; i ++){
@@ -24,19 +36,6 @@ public class TwoSum {
         }
         return result;
     }
-
-    public int[] twoSum2(int[] nums, int target) {
-      Map<Integer,Integer> map = new HashMap<>();
-      for (int i = 0 ; i < nums.length ; i ++){
-          int num = target-nums[i];
-          if(map.containsKey(num)){
-              return new int[]{map.get(num),i};
-          }
-          map.put(nums[i],i);
-      }
-        throw new IllegalArgumentException("No two sum solution");
-    }
-
 
 }
 
